@@ -1,0 +1,15 @@
+---
+
+- name: copy rhvm appliance to rhv01 server
+  copy:
+    src: /Users/lkim/github/RHVDemo_crisscross/rpm/rhvm-appliance-4.1.20170811.0-1.el7.noarch.rpm
+    dest: /
+    owner: root
+    group: root
+    mode: 0777
+
+
+- name: install rhvm rpm from a local file
+  yum:
+    name: /rhvm-appliance-4.1.20170811.0-1.el7.noarch.rpm
+    state: present

@@ -1,0 +1,7 @@
+---
+
+- name: install ovirt-hosted-engine and rhevm
+  yum: name={{ item }} state=latest
+  with_items:
+    - ovirt-hosted-engine-setup
+    

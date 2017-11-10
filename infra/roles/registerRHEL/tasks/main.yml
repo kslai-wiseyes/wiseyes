@@ -1,0 +1,48 @@
+---
+# This playbook deploys the whole application stack in this site.
+- name: Manage Red Hat subscription
+  redhat_subscription: 
+    username: "{{ rh_username }}"
+    password: "{{ rh_password }}"
+    autosubscribe: yes
+    state: present
+    pool_ids: 8a85f9815c991391015c99e11dbe6fa4
+
+      
+- name: Disable all repos
+  command: subscription-manager repos --disable=*
+
+- name: Enable repo1
+  command: subscription-manager repos --enable "{{ repo1 }}"
+
+- name: Enable repo2
+  command: subscription-manager repos --enable "{{ repo2 }}"
+      
+- name: Enable repo3
+  command: subscription-manager repos --enable "{{ repo3 }}"
+  
+- name: Enable repo4
+  command: subscription-manager repos --enable "{{ repo4 }}"
+
+- name: Enable repo5
+  command: subscription-manager repos --enable "{{ repo5 }}"
+  
+- name: Enable repo6
+  command: subscription-manager repos --enable "{{ repo6 }}"
+
+- name: Enable repo7
+  command: subscription-manager repos --enable "{{ repo7 }}"
+
+- name: Enable repo8
+  command: subscription-manager repos --enable "{{ repo8 }}"
+  
+
+- name: Yum update all
+  yum: 
+    name='*' 
+    state=latest 
+  exclude: kernel*,foo*
+    
+    
+  
+  
