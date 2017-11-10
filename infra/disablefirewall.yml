@@ -1,6 +1,6 @@
 ---
 
-- name: Stop and disable firewalld and NetworkManager service
+- name: Stop and disable firewalld service
   service: name={{ item }} state=stopped enabled=no
   with_items:
     - firewalld
